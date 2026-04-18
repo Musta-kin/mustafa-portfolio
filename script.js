@@ -1,318 +1,300 @@
-// ==================== SCRIPT.JS - COMPLETE FILE ====================
+// ==================== LANGUAGE SWITCHER ====================
+let currentLang = 'en'; // 'en' or 'ar'
 
-/* ---------- NAV MENU (mobile) ---------- */
+const langToggle = document.getElementById('lang-toggle');
+const langText = document.getElementById('lang-text');
+
+// Function to update all text elements based on selected language
+function updateLanguage(lang) {
+  // Update all elements with data-en and data-ar attributes
+  const elementsWithData = document.querySelectorAll('[data-en][data-ar]');
+  
+  elementsWithData.forEach(element => {
+    if (lang === 'en') {
+      element.textContent = element.getAttribute('data-en');
+    } else {
+      element.textContent = element.getAttribute('data-ar');
+    }
+  });
+  
+  // Update input placeholders
+  const inputsWithPlaceholder = document.querySelectorAll('[data-placeholder-en][data-placeholder-ar]');
+  inputsWithPlaceholder.forEach(input => {
+    if (lang === 'en') {
+      input.placeholder = input.getAttribute('data-placeholder-en');
+    } else {
+      input.placeholder = input.getAttribute('data-placeholder-ar');
+    }
+  });
+  
+  // Update select options
+  const selectOptions = document.querySelectorAll('#service option');
+  selectOptions.forEach(option => {
+    if (lang === 'en') {
+      option.textContent = option.getAttribute('data-en') || option.textContent;
+    } else {
+      option.textContent = option.getAttribute('data-ar') || option.textContent;
+    }
+  });
+  
+  // Update lang attribute on html
+  document.documentElement.lang = lang === 'en' ? 'en' : 'ar';
+  
+  // Add RTL class for Arabic
+  if (lang === 'ar') {
+    document.body.classList.add('rtl');
+    langText.textContent = '🇬🇧 English';
+  } else {
+    document.body.classList.remove('rtl');
+    langText.textContent = '🇦🇪 عربي';
+  }
+  
+  // Store language preference
+  localStorage.setItem('selected-lang', lang);
+}
+
+// Load saved language preference
+const savedLang = localStorage.getItem('selected-lang');
+if (savedLang) {
+  currentLang = savedLang;
+  updateLanguage(currentLang);
+}
+
+// Language toggle event
+if (langToggle) {
+  langToggle.addEventListener('click', () => {
+    currentLang = currentLang === 'en' ? 'ar' : 'en';
+    updateLanguage(currentLang);
+  });
+}
+
+// ==================== MOBILE NAVIGATION ====================
 const navMenu = document.getElementById('nav-menu');
 const navToggle = document.getElementById('nav-toggle');
 const navClose = document.getElementById('nav-close');
 
 if (navToggle) {
   navToggle.addEventListener('click', () => {
-    navMenu.classList.add('show-menu');
-  });
-}
-if (navClose) {
-  navClose.addEventListener('click', () => {
-    navMenu.classList.remove('show-menu');
+    navMenu.classList.add('active');
   });
 }
 
-// hide menu after clicking link (mobile)
-const navLinks = document.querySelectorAll('.nav__link');
-navLinks.forEach(link => {
+if (navClose) {
+  navClose.addEventListener('click', () => {
+    navMenu.classList.remove('active');
+  });
+}
+
+// Close menu when clicking a link
+document.querySelectorAll('.nav__link').forEach(link => {
   link.addEventListener('click', () => {
-    navMenu.classList.remove('show-menu');
+    navMenu.classList.remove('active');
   });
 });
 
-/* ---------- ACTIVE LINK ON SCROLL ---------- */
+// ==================== ACTIVE LINK ON SCROLL ====================
 const sections = document.querySelectorAll('section[id]');
+
 function scrollActive() {
   const scrollY = window.pageYOffset;
+  
   sections.forEach(section => {
     const sectionHeight = section.offsetHeight;
-    const sectionTop = section.offsetTop - 80;
+    const sectionTop = section.offsetTop - 100;
     const sectionId = section.getAttribute('id');
+    
     if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-      document.querySelector('.nav__menu a[href*=' + sectionId + ']')?.classList.add('active-link');
+      document.querySelector('.nav__link[href*=' + sectionId + ']')?.classList.add('active-link');
     } else {
-      document.querySelector('.nav__menu a[href*=' + sectionId + ']')?.classList.remove('active-link');
+      document.querySelector('.nav__link[href*=' + sectionId + ']')?.classList.remove('active-link');
     }
   });
 }
+
 window.addEventListener('scroll', scrollActive);
 
-/* ---------- CHANGE HEADER ON SCROLL ---------- */
+// ==================== SCROLL HEADER ====================
 function scrollHeader() {
   const header = document.getElementById('header');
-  if (window.scrollY >= 100) header.classList.add('scroll-header');
-  else header.classList.remove('scroll-header');
+  const isLight = document.body.classList.contains('light-theme');
+  if (window.scrollY >= 100) {
+    header.style.background = isLight ? 'rgba(248, 246, 243, 0.98)' : 'rgba(18, 24, 38, 0.98)';
+  } else {
+    header.style.background = isLight ? 'rgba(248, 246, 243, 0.95)' : 'rgba(18, 24, 38, 0.95)';
+  }
 }
+
 window.addEventListener('scroll', scrollHeader);
 
-/* ---------- SHOW SCROLL UP ---------- */
-function scrollUp() {
-  const scrollUpBtn = document.getElementById('scroll-up');
-  if (window.scrollY >= 560) scrollUpBtn.classList.add('show-scroll');
-  else scrollUpBtn.classList.remove('show-scroll');
-}
-window.addEventListener('scroll', scrollUp);
-
-/* ========== DARK / LIGHT THEME ========== */
-const themeButton = document.getElementById('theme-button');
+// ==================== DARK / LIGHT THEME ====================
+const themeButton = document.getElementById('theme-toggle');
 const lightTheme = 'light-theme';
 const iconTheme = 'uil-sun';
 
-// Previously selected topic (if user selected)
 const selectedTheme = localStorage.getItem('selected-theme');
 const selectedIcon = localStorage.getItem('selected-icon');
 
-// Function to get current theme
 const getCurrentTheme = () => document.body.classList.contains(lightTheme) ? 'light' : 'dark';
 const getCurrentIcon = () => themeButton.classList.contains(iconTheme) ? 'uil-moon' : 'uil-sun';
 
-// Apply saved theme on page load
 if (selectedTheme) {
-  // If saved theme is light, add light class to body
   if (selectedTheme === 'light') {
     document.body.classList.add(lightTheme);
-  } else {
-    document.body.classList.remove(lightTheme);
-  }
-  
-  // Set the correct icon
-  if (selectedIcon === 'uil-moon') {
     themeButton.classList.add(iconTheme);
   } else {
+    document.body.classList.remove(lightTheme);
     themeButton.classList.remove(iconTheme);
   }
 }
 
-// Toggle theme when button is clicked
 if (themeButton) {
   themeButton.addEventListener('click', () => {
-    // Toggle light theme class
     document.body.classList.toggle(lightTheme);
-    
-    // Toggle icon between moon and sun
     themeButton.classList.toggle(iconTheme);
     
-    // Save theme and icon to localStorage
     localStorage.setItem('selected-theme', getCurrentTheme());
     localStorage.setItem('selected-icon', getCurrentIcon());
+    scrollHeader();
   });
 }
 
-/* ========== MAILTO FORM - WORKS LOCALLY ========== */
-function sendViaMailto() {
-  // Get form elements
-  const name = document.getElementById('nameInput')?.value;
-  const email = document.getElementById('emailInput')?.value;
-  const message = document.getElementById('messageInput')?.value;
-  
-  if (!name || !email || !message) {
-    alert('Please fill in all fields');
-    return false;
+// ==================== SCROLL UP ====================
+function scrollUp() {
+  const scrollUpBtn = document.getElementById('scroll-up');
+  if (window.scrollY >= 560) {
+    scrollUpBtn.classList.add('show-scroll');
+  } else {
+    scrollUpBtn.classList.remove('show-scroll');
   }
-  
-  const subject = encodeURIComponent('Contact from Portfolio - ' + name);
-  const body = encodeURIComponent(
-    `Name: ${name}\n` +
-    `Email: ${email}\n\n` +
-    `Message:\n${message}`
-  );
-  
-  // Open default email client
-  window.location.href = `mailto:kingmusta67@gmail.com?subject=${subject}&body=${body}`;
-  
-  // Show success message
-  alert('Your email client will open. Please send the email to complete your message.');
-  
-  // Reset form
-  document.getElementById('contactForm')?.reset();
-  
-  return false; // Prevent form submission
 }
 
-/* ---------- COMMENT SECTION ---------- */
-const addCommentBtn = document.getElementById('addCommentBtn');
-const commentInput = document.getElementById('commentInput');
-const commentList = document.getElementById('commentList');
+window.addEventListener('scroll', scrollUp);
 
-if (addCommentBtn) {
-  addCommentBtn.addEventListener('click', () => {
-    const text = commentInput.value.trim();
-    if (text) {
-      const newComment = document.createElement('div');
-      newComment.className = 'comment';
-      newComment.textContent = 'Visitor: ' + text;
-      commentList.appendChild(newComment);
-      commentInput.value = '';
-      commentList.scrollTop = commentList.scrollHeight;
-    }
-  });
+// ==================== FAQ ACCORDION ====================
+document.querySelectorAll('.faq-item').forEach(item => {
+  const question = item.querySelector('.faq-question');
   
-  // Allow Enter key to post comment
-  if (commentInput) {
-    commentInput.addEventListener('keypress', (e) => {
-      if (e.key === 'Enter') {
-        addCommentBtn.click();
+  question.addEventListener('click', () => {
+    document.querySelectorAll('.faq-item').forEach(otherItem => {
+      if (otherItem !== item && otherItem.classList.contains('active')) {
+        otherItem.classList.remove('active');
       }
     });
-  }
+    item.classList.toggle('active');
+  });
+});
+
+// ==================== CONTACT FORM (Lead Capture) ====================
+const contactForm = document.getElementById('contactForm');
+
+if (contactForm) {
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const service = document.getElementById('service').value;
+    const message = document.getElementById('message').value.trim();
+    
+    if (!name || !email || !phone || !message) {
+      const errorMsg = currentLang === 'en' ? 'Please fill in all required fields.' : 'الرجاء ملء جميع الحقول المطلوبة.';
+      alert(errorMsg);
+      return;
+    }
+    
+    if (!email.includes('@')) {
+      const errorMsg = currentLang === 'en' ? 'Please enter a valid email address.' : 'الرجاء إدخال بريد إلكتروني صحيح.';
+      alert(errorMsg);
+      return;
+    }
+    
+    const subject = `New Lead: ${name} - ${service || 'General Inquiry'}`;
+    const body = `
+Name: ${name}
+Email: ${email}
+Phone: ${phone}
+Service: ${service || 'Not specified'}
+
+Message:
+${message}
+    `;
+    
+    window.location.href = `mailto:kingmusta67@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    
+    const successMsg = currentLang === 'en' 
+      ? 'Thank you! Your email client will open. Please send the email to complete your inquiry.\n\nWe will respond within 24 hours.'
+      : 'شكراً لك! سيتم فتح بريدك الإلكتروني. الرجاء إرسال البريد لإكمال استفسارك.\n\nسنرد خلال 24 ساعة.';
+    
+    alert(successMsg);
+    contactForm.reset();
+  });
 }
 
-/* ---------- SMOOTH SCROLL FOR ANCHOR LINKS ---------- */
+// ==================== SMOOTH SCROLL ====================
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
+  anchor.addEventListener('click', function(e) {
     const href = this.getAttribute('href');
     if (href === '#') return;
-    e.preventDefault();
+    
     const target = document.querySelector(href);
     if (target) {
+      e.preventDefault();
       target.scrollIntoView({ behavior: 'smooth' });
     }
   });
 });
 
-/* ==================== LIVE CHAT WIDGET ACTIVATION ==================== */
-document.addEventListener('DOMContentLoaded', function() {
-  // Get all chat elements
-  const chatWidget = document.getElementById('chatWidget');
-  const chatBox = document.getElementById('chatBox');
-  const chatClose = document.getElementById('chatClose');
-  const chatSend = document.getElementById('chatSend');
-  const chatInput = document.getElementById('chatInput');
-  const chatBody = document.querySelector('.chat-body');
-  
-  // Your WhatsApp number for direct contact
-  const WHATSAPP_NUMBER = '971589431918';
-  
-  // Exit if elements don't exist
-  if (!chatWidget || !chatBox) return;
-  
-  // ===== OPEN CHAT =====
-  chatWidget.addEventListener('click', function(e) {
-    e.stopPropagation();
-    chatBox.style.display = 'flex';
-    chatWidget.style.display = 'none';
-    // Focus on input field
-    setTimeout(() => chatInput?.focus(), 100);
-  });
-  
-  // ===== CLOSE CHAT =====
-  if (chatClose) {
-    chatClose.addEventListener('click', function(e) {
-      e.stopPropagation();
-      chatBox.style.display = 'none';
-      chatWidget.style.display = 'flex';
-    });
-  }
-  
-  // ===== SEND MESSAGE FUNCTION =====
-  function sendMessage() {
-    const message = chatInput.value.trim();
-    if (!message) return;
+// ==================== REVEAL ON SCROLL ====================
+const revealElements = document.querySelectorAll('.service-card, .gov-card, .step-card, .project-card, .faq-item');
+
+const revealOnScroll = () => {
+  revealElements.forEach(element => {
+    const elementTop = element.getBoundingClientRect().top;
+    const windowHeight = window.innerHeight;
     
-    // Display user message in chat
-    displayUserMessage(message);
-    
-    // Clear input
-    chatInput.value = '';
-    
-    // Show typing indicator
-    showTypingIndicator();
-    
-    // Simulate response after 1.5 seconds
-    setTimeout(() => {
-      removeTypingIndicator();
-      displayBotResponse(message);
-    }, 1500);
-  }
-  
-  // Display user message
-  function displayUserMessage(message) {
-    const userDiv = document.createElement('div');
-    userDiv.className = 'chat-message user-message';
-    userDiv.textContent = message;
-    chatBody.appendChild(userDiv);
-    chatBody.scrollTop = chatBody.scrollHeight;
-  }
-  
-  // Show typing indicator
-  function showTypingIndicator() {
-    // Remove any existing typing indicator first
-    removeTypingIndicator();
-    
-    const typingDiv = document.createElement('div');
-    typingDiv.className = 'chat-message bot-message typing-indicator';
-    typingDiv.id = 'typingIndicator';
-    typingDiv.innerHTML = 'Mustafa is typing<span class="typing-dots"></span>';
-    chatBody.appendChild(typingDiv);
-    chatBody.scrollTop = chatBody.scrollHeight;
-  }
-  
-  // Remove typing indicator
-  function removeTypingIndicator() {
-    document.getElementById('typingIndicator')?.remove();
-  }
-  
-  // Display bot response with WhatsApp option
-  function displayBotResponse(originalMessage) {
-    const responses = [
-      "Thanks for reaching out! I'll get back to you within 24 hours.",
-      "Got your message! For faster response, you can WhatsApp me directly.",
-      "I appreciate your interest. Let me review and respond soon.",
-      "Message received! While you wait, check out my GitHub for project examples."
-    ];
-    
-    const randomResponse = responses[Math.floor(Math.random() * responses.length)];
-    
-    const responseDiv = document.createElement('div');
-    responseDiv.className = 'chat-message bot-message';
-    
-    responseDiv.innerHTML = `
-      <div style="margin-bottom: 10px;">${randomResponse}</div>
-      <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 10px;">
-        <a href="https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Hi Mustafa, I just messaged you on your website about: ' + originalMessage)}" 
-           target="_blank"
-           class="whatsapp-chat-btn">
-          <i class="fab fa-whatsapp"></i> Chat on WhatsApp now
-        </a>
-        <span style="font-size: 11px; color: var(--text-color-light); text-align: center;">
-          ⚡ Typically replies within 2 hours
-        </span>
-      </div>
-    `;
-    
-    chatBody.appendChild(responseDiv);
-    chatBody.scrollTop = chatBody.scrollHeight;
-  }
-  
-  // ===== EVENT LISTENERS =====
-  if (chatSend) {
-    chatSend.addEventListener('click', sendMessage);
-  }
-  
-  if (chatInput) {
-    chatInput.addEventListener('keypress', function(e) {
-      if (e.key === 'Enter') {
-        e.preventDefault();
-        sendMessage();
-      }
-    });
-  }
-  
-  // ===== CLOSE WHEN CLICKING OUTSIDE =====
-  document.addEventListener('click', function(e) {
-    if (chatBox.style.display === 'flex' && 
-        !chatBox.contains(e.target) && 
-        !chatWidget.contains(e.target)) {
-      chatBox.style.display = 'none';
-      chatWidget.style.display = 'flex';
+    if (elementTop < windowHeight - 100) {
+      element.style.opacity = '1';
+      element.style.transform = 'translateY(0)';
     }
   });
-  
-  // ===== INITIALIZE CHAT STATE =====
-  chatBox.style.display = 'none';
-  chatWidget.style.display = 'flex';
+};
+
+revealElements.forEach(element => {
+  element.style.opacity = '0';
+  element.style.transform = 'translateY(30px)';
+  element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
 });
+
+window.addEventListener('scroll', revealOnScroll);
+window.addEventListener('load', revealOnScroll);
+
+// Add fadeIn animation
+const style = document.createElement('style');
+style.textContent = `
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+`;
+document.head.appendChild(style);
+
+// ==================== WHATSAPP FLOATING BUTTON ====================
+const whatsappBtn = document.querySelector('.whatsapp-float');
+if (whatsappBtn) {
+  whatsappBtn.addEventListener('mouseenter', () => {
+    whatsappBtn.style.transform = 'scale(1.1)';
+  });
+  whatsappBtn.addEventListener('mouseleave', () => {
+    whatsappBtn.style.transform = 'scale(1)';
+  });
+}
+
+console.log('Musta Tech Solutions — Bilingual Website Loaded Successfully ✅');
+console.log('EN/AR Language Switcher Active 🇬🇧🇦🇪');
