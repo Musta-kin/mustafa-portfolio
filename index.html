@@ -14,6 +14,7 @@
   
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -26,13 +27,13 @@
       
       <div class="nav__menu" id="nav-menu">
         <ul class="nav__list">
-          <li><a href="#home" class="nav__link active-link">Home</a></li>
-          <li><a href="#services" class="nav__link">Services</a></li>
-          <li><a href="#government" class="nav__link">Government Services</a></li>
-          <li><a href="#how-it-works" class="nav__link">How It Works</a></li>
-          <li><a href="#projects" class="nav__link">Projects</a></li>
-          <li><a href="#faq" class="nav__link">FAQ</a></li>
-          <li><a href="#contact" class="nav__link">Contact</a></li>
+          <li><a href="#home" class="nav__link active-link" data-en="Home" data-ar="الرئيسية">Home</a></li>
+          <li><a href="#services" class="nav__link" data-en="Services" data-ar="الخدمات">Services</a></li>
+          <li><a href="#government" class="nav__link" data-en="Government Services" data-ar="الخدمات الحكومية">Government Services</a></li>
+          <li><a href="#how-it-works" class="nav__link" data-en="How It Works" data-ar="كيف يعمل">How It Works</a></li>
+          <li><a href="#projects" class="nav__link" data-en="Projects" data-ar="المشاريع">Projects</a></li>
+          <li><a href="#faq" class="nav__link" data-en="FAQ" data-ar="الأسئلة الشائعة">FAQ</a></li>
+          <li><a href="#contact" class="nav__link" data-en="Contact" data-ar="اتصل بنا">Contact</a></li>
         </ul>
         <div class="nav__close" id="nav-close">
           <i class="uil uil-times"></i>
@@ -40,6 +41,9 @@
       </div>
       
       <div class="nav__actions">
+        <button class="lang-toggle" id="lang-toggle" aria-label="Toggle Language">
+          <span id="lang-text">🇦🇪 عربي</span>
+        </button>
         <button class="theme-toggle" id="theme-toggle">
           <i class="uil uil-moon"></i>
         </button>
@@ -55,26 +59,28 @@
     <section class="hero" id="home">
       <div class="hero__container container">
         <div class="hero__content">
-          <span class="hero__badge">🇦🇪 Trusted in UAE</span>
+          <span class="hero__badge" data-en="🇦🇪 Trusted in UAE" data-ar="🇦🇪 موثوق في الإمارات">🇦🇪 Trusted in UAE</span>
           <h1 class="hero__title">
-            IT, Automation & <span class="gradient">UAE Government Services</span> — One Partner, All Solutions
+            <span data-en="IT, Automation & " data-ar="تقنية المعلومات، الأتمتة و ">IT, Automation & </span>
+            <span class="gradient" data-en="UAE Government Services" data-ar="الخدمات الحكومية الإماراتية">UAE Government Services</span>
+            <span data-en=" — One Partner, All Solutions" data-ar=" — شريك واحد، كل الحلول"> — One Partner, All Solutions</span>
           </h1>
-          <p class="hero__description">
+          <p class="hero__description" data-en="Helping businesses and residents in Dubai, Abu Dhabi & across the UAE save time, reduce stress, and get things done faster — without hiring a full-time team." data-ar="نساعد الشركات والمقيمين في دبي وأبوظبي وجميع أنحاء الإمارات على توفير الوقت، تقليل التوتر، وإنجاز الأمور بشكل أسرع — دون الحاجة إلى تعيين فريق تقنية معلومات متكامل.">
             Helping businesses and residents in Dubai, Abu Dhabi & across the UAE save time, reduce stress, and get things done faster — without hiring a full-time team.
           </p>
           <div class="hero__buttons">
             <a href="#contact" class="btn btn-primary">
-              <i class="uil uil-calendar-alt"></i> Get Free Consultation
+              <i class="uil uil-calendar-alt"></i> <span data-en="Get Free Consultation" data-ar="احصل على استشارة مجانية">Get Free Consultation</span>
             </a>
             <a href="https://wa.me/971589431918" target="_blank" class="btn btn-outline">
-              <i class="uil uil-whatsapp"></i> Chat on WhatsApp
+              <i class="uil uil-whatsapp"></i> <span data-en="Chat on WhatsApp" data-ar="تحدث عبر واتساب">Chat on WhatsApp</span>
             </a>
           </div>
           <div class="trust-strip">
-            <span><i class="uil uil-desktop"></i> IT Support & Helpdesk</span>
-            <span><i class="uil uil-robot"></i> Business Automation</span>
-            <span><i class="uil uil-building"></i> UAE Government Services</span>
-            <span><i class="uil uil-globe"></i> Website & Digital Solutions</span>
+            <span><i class="uil uil-desktop"></i> <span data-en="IT Support & Helpdesk" data-ar="دعم تقنية المعلومات">IT Support & Helpdesk</span></span>
+            <span><i class="uil uil-robot"></i> <span data-en="Business Automation" data-ar="أتمتة الأعمال">Business Automation</span></span>
+            <span><i class="uil uil-building"></i> <span data-en="UAE Government Services" data-ar="الخدمات الحكومية">UAE Government Services</span></span>
+            <span><i class="uil uil-globe"></i> <span data-en="Website & Digital Solutions" data-ar="مواقع وحلول رقمية">Website & Digital Solutions</span></span>
           </div>
         </div>
         <div class="hero__profile">
@@ -86,62 +92,56 @@
     <!-- ==================== SERVICES SECTION ==================== -->
     <section class="services section" id="services">
       <div class="container">
-        <h2 class="section__title">Digital & IT Services for Modern Businesses</h2>
-        <p class="section__subtitle">What We Do Best</p>
+        <h2 class="section__title" data-en="Digital & IT Services for Modern Businesses" data-ar="الخدمات الرقمية وتقنية المعلومات للأعمال الحديثة">Digital & IT Services for Modern Businesses</h2>
+        <p class="section__subtitle" data-en="What We Do Best" data-ar="ما نتميز فيه">What We Do Best</p>
         
         <div class="services__grid">
           <!-- Service 1 -->
           <div class="service-card">
-            <div class="service-card__icon">
-              <i class="uil uil-desktop"></i>
-            </div>
-            <h3>IT Support & Helpdesk</h3>
-            <p><strong>Keep your business running. Zero downtime.</strong></p>
+            <div class="service-card__icon"><i class="uil uil-desktop"></i></div>
+            <h3 data-en="IT Support & Helpdesk" data-ar="دعم تقنية المعلومات">IT Support & Helpdesk</h3>
+            <p><strong data-en="Keep your business running. Zero downtime." data-ar="حافظ على استمرارية عملك. بدون توقف.">Keep your business running. Zero downtime.</strong></p>
             <ul>
-              <li><i class="uil uil-check-circle"></i> Microsoft 365 setup & management</li>
-              <li><i class="uil uil-check-circle"></i> Device setup & troubleshooting</li>
-              <li><i class="uil uil-check-circle"></i> Network & Wi-Fi support</li>
-              <li><i class="uil uil-check-circle"></i> Helpdesk & ticketing (ServiceNow, Jira, Zendesk)</li>
-              <li><i class="uil uil-check-circle"></i> Remote support (TeamViewer, AnyDesk, RDP)</li>
-              <li><i class="uil uil-check-circle"></i> Office IT setup & cabling</li>
+              <li><i class="uil uil-check-circle"></i> <span data-en="Microsoft 365 setup & management" data-ar="إعداد وإدارة Microsoft 365">Microsoft 365 setup & management</span></li>
+              <li><i class="uil uil-check-circle"></i> <span data-en="Device setup & troubleshooting" data-ar="إعداد الأجهزة وحل المشكلات">Device setup & troubleshooting</span></li>
+              <li><i class="uil uil-check-circle"></i> <span data-en="Network & Wi-Fi support" data-ar="دعم الشبكات والواي فاي">Network & Wi-Fi support</span></li>
+              <li><i class="uil uil-check-circle"></i> <span data-en="Helpdesk & ticketing (ServiceNow, Jira, Zendesk)" data-ar="الدعم الفني وأنظمة التذاكر">Helpdesk & ticketing (ServiceNow, Jira, Zendesk)</span></li>
+              <li><i class="uil uil-check-circle"></i> <span data-en="Remote support (TeamViewer, AnyDesk, RDP)" data-ar="الدعم عن بعد">Remote support (TeamViewer, AnyDesk, RDP)</span></li>
+              <li><i class="uil uil-check-circle"></i> <span data-en="Office IT setup & cabling" data-ar="إعداد تقنية المعلومات في المكتب">Office IT setup & cabling</span></li>
             </ul>
-            <a href="#contact" class="card-cta">Need IT support? → Chat with us</a>
+            <a href="#contact" class="card-cta"><span data-en="Need IT support? → Chat with us" data-ar="تحتاج دعم تقنية معلومات؟ → تحدث معنا">Need IT support? → Chat with us</span></a>
           </div>
           
           <!-- Service 2 -->
           <div class="service-card">
-            <div class="service-card__icon">
-              <i class="uil uil-robot"></i>
-            </div>
-            <h3>Business Automation & Virtual Assistance</h3>
-            <p><strong>Work smarter. Automate the repetitive.</strong></p>
+            <div class="service-card__icon"><i class="uil uil-robot"></i></div>
+            <h3 data-en="Business Automation & Virtual Assistance" data-ar="أتمتة الأعمال والمساعدة الافتراضية">Business Automation & Virtual Assistance</h3>
+            <p><strong data-en="Work smarter. Automate the repetitive." data-ar="اعمل بذكاء. أتمتة المهام المتكررة.">Work smarter. Automate the repetitive.</strong></p>
             <ul>
-              <li><i class="uil uil-check-circle"></i> Workflow automation (Zapier, Make)</li>
-              <li><i class="uil uil-check-circle"></i> Email & calendar management</li>
-              <li><i class="uil uil-check-circle"></i> CRM & ticketing system setup</li>
-              <li><i class="uil uil-check-circle"></i> AI tools integration (ChatGPT, Copilot, Claude)</li>
-              <li><i class="uil uil-check-circle"></i> Data entry & admin support</li>
-              <li><i class="uil uil-check-circle"></i> Process optimization & documentation</li>
+              <li><i class="uil uil-check-circle"></i> <span data-en="Workflow automation (Zapier, Make)" data-ar="أتمتة سير العمل">Workflow automation (Zapier, Make)</span></li>
+              <li><i class="uil uil-check-circle"></i> <span data-en="Email & calendar management" data-ar="إدارة البريد الإلكتروني والتقويم">Email & calendar management</span></li>
+              <li><i class="uil uil-check-circle"></i> <span data-en="CRM & ticketing system setup" data-ar="إعداد نظام CRM والتذاكر">CRM & ticketing system setup</span></li>
+              <li><i class="uil uil-check-circle"></i> <span data-en="AI tools integration (ChatGPT, Copilot, Claude)" data-ar="دمج أدوات الذكاء الاصطناعي">AI tools integration (ChatGPT, Copilot, Claude)</span></li>
+              <li><i class="uil uil-check-circle"></i> <span data-en="Data entry & admin support" data-ar="إدخال البيانات والدعم الإداري">Data entry & admin support</span></li>
+              <li><i class="uil uil-check-circle"></i> <span data-en="Process optimization & documentation" data-ar="تحسين العمليات والتوثيق">Process optimization & documentation</span></li>
             </ul>
-            <a href="#contact" class="card-cta">Automate your workflows → Contact us</a>
+            <a href="#contact" class="card-cta"><span data-en="Automate your workflows → Contact us" data-ar="أتمتة سير عملك → اتصل بنا">Automate your workflows → Contact us</span></a>
           </div>
           
           <!-- Service 3 -->
           <div class="service-card">
-            <div class="service-card__icon">
-              <i class="uil uil-palette"></i>
-            </div>
-            <h3>Business Websites & Online Presence</h3>
-            <p><strong>Launch a professional online presence fast.</strong></p>
+            <div class="service-card__icon"><i class="uil uil-palette"></i></div>
+            <h3 data-en="Business Websites & Online Presence" data-ar="مواقع الأعمال والتواجد الإلكتروني">Business Websites & Online Presence</h3>
+            <p><strong data-en="Launch a professional online presence fast." data-ar="أطلق حضوراً إلكترونياً احترافياً بسرعة.">Launch a professional online presence fast.</strong></p>
             <ul>
-              <li><i class="uil uil-check-circle"></i> Company websites & landing pages</li>
-              <li><i class="uil uil-check-circle"></i> Portfolio websites</li>
-              <li><i class="uil uil-check-circle"></i> Contact & lead generation setup</li>
-              <li><i class="uil uil-check-circle"></i> Mobile-friendly responsive design</li>
-              <li><i class="uil uil-check-circle"></i> Basic SEO optimization</li>
-              <li><i class="uil uil-check-circle"></i> Chat widget & WhatsApp integration</li>
+              <li><i class="uil uil-check-circle"></i> <span data-en="Company websites & landing pages" data-ar="مواقع الشركات وصفحات الهبوط">Company websites & landing pages</span></li>
+              <li><i class="uil uil-check-circle"></i> <span data-en="Portfolio websites" data-ar="مواقع المحفظة">Portfolio websites</span></li>
+              <li><i class="uil uil-check-circle"></i> <span data-en="Contact & lead generation setup" data-ar="إعداد جهات الاتصال وتوليد العملاء المحتملين">Contact & lead generation setup</span></li>
+              <li><i class="uil uil-check-circle"></i> <span data-en="Mobile-friendly responsive design" data-ar="تصميم متجاوب مع الجوال">Mobile-friendly responsive design</span></li>
+              <li><i class="uil uil-check-circle"></i> <span data-en="Basic SEO optimization" data-ar="تحسين محركات البحث الأساسي">Basic SEO optimization</span></li>
+              <li><i class="uil uil-check-circle"></i> <span data-en="Chat widget & WhatsApp integration" data-ar="أداة الدردشة ودمج واتساب">Chat widget & WhatsApp integration</span></li>
             </ul>
-            <a href="#contact" class="card-cta">Get your website → Request a quote</a>
+            <a href="#contact" class="card-cta"><span data-en="Get your website → Request a quote" data-ar="احصل على موقعك → اطلب عرض سعر">Get your website → Request a quote</span></a>
           </div>
         </div>
       </div>
@@ -150,48 +150,48 @@
     <!-- ==================== UAE GOVERNMENT SERVICES ==================== -->
     <section class="government section" id="government">
       <div class="container">
-        <h2 class="section__title">UAE Government Services — We Handle the Paperwork</h2>
-        <p class="section__subtitle">Official Services Assistance 🇦🇪</p>
-        <p style="text-align: center; margin-bottom: 2rem; color: var(--text-muted);">
+        <h2 class="section__title" data-en="UAE Government Services — We Handle the Paperwork" data-ar="الخدمات الحكومية الإماراتية — نحن نتولى الأعمال الورقية">UAE Government Services — We Handle the Paperwork</h2>
+        <p class="section__subtitle" data-en="Official Services Assistance 🇦🇪" data-ar="مساعدة في الخدمات الرسمية 🇦🇪">Official Services Assistance 🇦🇪</p>
+        <p style="text-align: center; margin-bottom: 2rem; color: var(--text-muted);" data-en="We help residents, employees, and business owners complete UAE government processes quickly and correctly — saving you time, avoiding delays, and eliminating frustration." data-ar="نساعد المقيمين والموظفين وأصحاب الأعمال على إكمال الإجراءات الحكومية الإماراتية بسرعة وبشكل صحيح — مما يوفر وقتك، ويتجنب التأخير، ويزيل الإحباط.">
           We help residents, employees, and business owners complete UAE government processes quickly and correctly — saving you time, avoiding delays, and eliminating frustration.
         </p>
         
         <div class="gov__grid">
           <div class="gov-card">
             <div class="gov-card__icon"><i class="uil uil-briefcase-alt"></i></div>
-            <h3>Tasheel Services</h3>
-            <p>Labour contracts, work permits, company labour services, offer letter processing, MOHRE transactions.</p>
+            <h3 data-en="Tasheel Services" data-ar="خدمات تسهيل">Tasheel Services</h3>
+            <p data-en="Labour contracts, work permits, company labour services, offer letter processing, MOHRE transactions." data-ar="عقود العمل، تصاريح العمل، خدمات العمل للشركات، معالجة خطابات العرض، معاملات وزارة الموارد البشرية والتوطين.">Labour contracts, work permits, company labour services, offer letter processing, MOHRE transactions.</p>
           </div>
           <div class="gov-card">
             <div class="gov-card__icon"><i class="uil uil-passport"></i></div>
-            <h3>Amer Services</h3>
-            <p>Visa applications & renewals, residency services, Emirates ID, family visa assistance, entry permits.</p>
+            <h3 data-en="Amer Services" data-ar="خدمات آمر">Amer Services</h3>
+            <p data-en="Visa applications & renewals, residency services, Emirates ID, family visa assistance, entry permits." data-ar="طلبات التأشيرات وتجديدها، خدمات الإقامة، بطاقة الهوية الإماراتية، المساعدة في تأشيرات العائلة، تصاريح الدخول.">Visa applications & renewals, residency services, Emirates ID, family visa assistance, entry permits.</p>
           </div>
           <div class="gov-card">
             <div class="gov-card__icon"><i class="uil uil-estate"></i></div>
-            <h3>DLD Services</h3>
-            <p>Property applications, real estate documentation, Ejari assistance, title deed services.</p>
+            <h3 data-en="DLD Services" data-ar="خدمات دائرة الأراضي والأملاك">DLD Services</h3>
+            <p data-en="Property applications, real estate documentation, Ejari assistance, title deed services." data-ar="طلبات الملكية، توثيق العقارات، المساعدة في إيجاري، خدمات صك الملكية.">Property applications, real estate documentation, Ejari assistance, title deed services.</p>
           </div>
           <div class="gov-card">
             <div class="gov-card__icon"><i class="uil uil-store"></i></div>
-            <h3>DED Services</h3>
-            <p>Trade license applications, business license renewal, company setup assistance, commercial permits.</p>
+            <h3 data-en="DED Services" data-ar="خدمات دائرة التنمية الاقتصادية">DED Services</h3>
+            <p data-en="Trade license applications, business license renewal, company setup assistance, commercial permits." data-ar="طلبات الرخص التجارية، تجديد الرخص التجارية، المساعدة في تأسيس الشركات، التصاريح التجارية.">Trade license applications, business license renewal, company setup assistance, commercial permits.</p>
           </div>
           <div class="gov-card">
             <div class="gov-card__icon"><i class="uil uil-fingerprint"></i></div>
-            <h3>ICA & Biometrics</h3>
-            <p>Biometric appointment assistance, Emirates ID fingerprint support, application follow-up & tracking.</p>
+            <h3 data-en="ICA & Biometrics" data-ar="القيادة العامة للهوية والجنسية والقياس الحيوي">ICA & Biometrics</h3>
+            <p data-en="Biometric appointment assistance, Emirates ID fingerprint support, application follow-up & tracking." data-ar="المساعدة في مواعيد القياس الحيوي، دعم بصمات بطاقة الهوية، متابعة وتتبع الطلبات.">Biometric appointment assistance, Emirates ID fingerprint support, application follow-up & tracking.</p>
           </div>
           <div class="gov-card">
             <div class="gov-card__icon"><i class="uil uil-question-circle"></i></div>
-            <h3>General Government Queries</h3>
-            <p>Any transaction, document typing, application tracking, status follow-up — we're here to help.</p>
+            <h3 data-en="General Government Queries" data-ar="الاستفسارات الحكومية العامة">General Government Queries</h3>
+            <p data-en="Any transaction, document typing, application tracking, status follow-up — we're here to help." data-ar="أي معاملة، كتابة المستندات، تتبع الطلبات، متابعة الحالة — نحن هنا للمساعدة.">Any transaction, document typing, application tracking, status follow-up — we're here to help.</p>
           </div>
         </div>
         
         <div style="text-align: center; margin-top: 3rem;">
           <a href="https://wa.me/971589431918" target="_blank" class="btn btn-secondary">
-            <i class="uil uil-whatsapp"></i> Ask about a government service
+            <i class="uil uil-whatsapp"></i> <span data-en="Ask about a government service" data-ar="اسأل عن خدمة حكومية">Ask about a government service</span>
           </a>
         </div>
       </div>
@@ -200,21 +200,21 @@
     <!-- ==================== PROBLEMS WE SOLVE ==================== -->
     <section class="problems section">
       <div class="container">
-        <h2 class="section__title">Is your business facing these problems?</h2>
+        <h2 class="section__title" data-en="Is your business facing these problems?" data-ar="هل يواجه عملك هذه المشاكل؟">Is your business facing these problems?</h2>
         <div class="problems__grid">
-          <div class="problem-card"><i class="uil uil-exclamation-triangle"></i> IT issues stopping daily work</div>
-          <div class="problem-card"><i class="uil uil-money-bill"></i> Too expensive to hire full-time IT staff</div>
-          <div class="problem-card"><i class="uil uil-clock"></i> Employees wasting hours on manual tasks</div>
-          <div class="problem-card"><i class="uil uil-ticket"></i> No proper helpdesk or ticketing system</div>
-          <div class="problem-card"><i class="uil uil-file-alt"></i> Struggling with UAE government paperwork</div>
-          <div class="problem-card"><i class="uil uil-globe"></i> No professional website or online presence</div>
-          <div class="problem-card"><i class="uil uil-times-circle"></i> Government applications getting rejected or delayed</div>
+          <div class="problem-card"><i class="uil uil-exclamation-triangle"></i> <span data-en="IT issues stopping daily work" data-ar="مشاكل تقنية المعلومات توقف العمل اليومي">IT issues stopping daily work</span></div>
+          <div class="problem-card"><i class="uil uil-money-bill"></i> <span data-en="Too expensive to hire full-time IT staff" data-ar="مكلف جداً تعيين موظفي تقنية معلومات بدوام كامل">Too expensive to hire full-time IT staff</span></div>
+          <div class="problem-card"><i class="uil uil-clock"></i> <span data-en="Employees wasting hours on manual tasks" data-ar="الموظفون يضيعون ساعات في المهام اليدوية">Employees wasting hours on manual tasks</span></div>
+          <div class="problem-card"><i class="uil uil-ticket"></i> <span data-en="No proper helpdesk or ticketing system" data-ar="لا يوجد نظام دعم فني أو تذاكر مناسب">No proper helpdesk or ticketing system</span></div>
+          <div class="problem-card"><i class="uil uil-file-alt"></i> <span data-en="Struggling with UAE government paperwork" data-ar="تعاني من الأوراق الحكومية الإماراتية">Struggling with UAE government paperwork</span></div>
+          <div class="problem-card"><i class="uil uil-globe"></i> <span data-en="No professional website or online presence" data-ar="لا يوجد موقع احترافي أو حضور إلكتروني">No professional website or online presence</span></div>
+          <div class="problem-card"><i class="uil uil-times-circle"></i> <span data-en="Government applications getting rejected or delayed" data-ar="الطلبات الحكومية مرفوضة أو متأخرة">Government applications getting rejected or delayed</span></div>
         </div>
-        <p style="text-align: center; margin-top: 2rem; font-size: 1.2rem; color: var(--text-muted);">
+        <p style="text-align: center; margin-top: 2rem; font-size: 1.2rem; color: var(--text-muted);" data-en="We provide practical solutions — fast, simple, and reliable. You focus on your business. We handle the rest." data-ar="نقدم حلولاً عملية — سريعة وبسيطة وموثوقة. ركز على عملك. نحن نتولى الباقي.">
           We provide practical solutions — fast, simple, and reliable. You focus on your business. We handle the rest.
         </p>
         <div style="text-align: center; margin-top: 2rem;">
-          <a href="#contact" class="btn btn-primary">Let's solve your problems → Book a consultation</a>
+          <a href="#contact" class="btn btn-primary"><span data-en="Let's solve your problems → Book a consultation" data-ar="دعنا نحل مشاكلك → احجز استشارة">Let's solve your problems → Book a consultation</span></a>
         </div>
       </div>
     </section>
@@ -222,27 +222,27 @@
     <!-- ==================== HOW IT WORKS ==================== -->
     <section class="how-it-works section" id="how-it-works">
       <div class="container">
-        <h2 class="section__title">Simple Process. Real Results.</h2>
+        <h2 class="section__title" data-en="Simple Process. Real Results." data-ar="عملية بسيطة. نتائج حقيقية.">Simple Process. Real Results.</h2>
         <div class="steps__grid">
           <div class="step-card">
             <div class="step-number">01</div>
-            <h3>Contact & Consultation</h3>
-            <p>Tell us your needs via WhatsApp or the contact form — we respond within hours.</p>
+            <h3 data-en="Contact & Consultation" data-ar="الاتصال والاستشارة">Contact & Consultation</h3>
+            <p data-en="Tell us your needs via WhatsApp or the contact form — we respond within hours." data-ar="أخبرنا احتياجاتك عبر واتساب أو نموذج الاتصال — نرد خلال ساعات.">Tell us your needs via WhatsApp or the contact form — we respond within hours.</p>
           </div>
           <div class="step-card">
             <div class="step-number">02</div>
-            <h3>Assessment & Planning</h3>
-            <p>We analyze your situation and propose the best solution with clear timeline.</p>
+            <h3 data-en="Assessment & Planning" data-ar="التقييم والتخطيط">Assessment & Planning</h3>
+            <p data-en="We analyze your situation and propose the best solution with clear timeline." data-ar="نحلل وضعك ونقترح أفضل حل بجدول زمني واضح.">We analyze your situation and propose the best solution with clear timeline.</p>
           </div>
           <div class="step-card">
             <div class="step-number">03</div>
-            <h3>Implementation</h3>
-            <p>We handle the technical work, government processes, or both.</p>
+            <h3 data-en="Implementation" data-ar="التنفيذ">Implementation</h3>
+            <p data-en="We handle the technical work, government processes, or both." data-ar="نتولى العمل التقني أو الإجراءات الحكومية أو كليهما.">We handle the technical work, government processes, or both.</p>
           </div>
           <div class="step-card">
             <div class="step-number">04</div>
-            <h3>Support & Follow-up</h3>
-            <p>We stay available for ongoing support, maintenance, and improvements.</p>
+            <h3 data-en="Support & Follow-up" data-ar="الدعم والمتابعة">Support & Follow-up</h3>
+            <p data-en="We stay available for ongoing support, maintenance, and improvements." data-ar="نبقى متاحين للدعم المستمر والصيانة والتحسينات.">We stay available for ongoing support, maintenance, and improvements.</p>
           </div>
         </div>
       </div>
@@ -251,25 +251,25 @@
     <!-- ==================== PROJECTS SECTION ==================== -->
     <section class="projects section" id="projects">
       <div class="container">
-        <h2 class="section__title">Recent Work & Solutions</h2>
-        <p class="section__subtitle">Real projects, real results</p>
+        <h2 class="section__title" data-en="Recent Work & Solutions" data-ar="أحدث الأعمال والحلول">Recent Work & Solutions</h2>
+        <p class="section__subtitle" data-en="Real projects, real results" data-ar="مشاريع حقيقية، نتائج حقيقية">Real projects, real results</p>
         <div class="projects__grid">
           <div class="project-card">
             <i class="uil uil-network"></i>
-            <h3>Python Network Scanner</h3>
-            <p>Live host discovery & subnet monitor. Used internally to reduce troubleshooting time by 40%.</p>
+            <h3 data-en="Python Network Scanner" data-ar="ماسح الشبكات بايثون">Python Network Scanner</h3>
+            <p data-en="Live host discovery & subnet monitor. Used internally to reduce troubleshooting time by 40%." data-ar="اكتشاف المضيف الحي ومراقبة الشبكة الفرعية. يستخدم داخلياً لتقليل وقت استكشاف الأخطاء بنسبة 40%.">Live host discovery & subnet monitor. Used internally to reduce troubleshooting time by 40%.</p>
             <span class="project-tag">Python · Scapy</span>
           </div>
           <div class="project-card">
             <i class="uil uil-crm"></i>
-            <h3>CRM-style Ticketing App</h3>
-            <p>Simulates ticket workflows, built with Node.js + MySQL. Demonstrates full-stack logic.</p>
+            <h3 data-en="CRM-style Ticketing App" data-ar="تطبيق تذاكر على نمط CRM">CRM-style Ticketing App</h3>
+            <p data-en="Simulates ticket workflows, built with Node.js + MySQL. Demonstrates full-stack logic." data-ar="يحاكي سير عمل التذاكر، مبني بـ Node.js و MySQL. يوضح منطق التطبيق الكامل.">Simulates ticket workflows, built with Node.js + MySQL. Demonstrates full-stack logic.</p>
             <span class="project-tag">Node.js · MySQL</span>
           </div>
           <div class="project-card">
             <i class="uil uil-wifi"></i>
-            <h3>LAN Environment Design</h3>
-            <p>Small office LAN with VLANs and testing scenarios — documented for junior techs.</p>
+            <h3 data-en="LAN Environment Design" data-ar="تصميم بيئة الشبكة المحلية">LAN Environment Design</h3>
+            <p data-en="Small office LAN with VLANs and testing scenarios — documented for junior techs." data-ar="شبكة محلية للمكاتب الصغيرة مع شبكات VLAN وسيناريوهات اختبار — موثقة للتقنيين المبتدئين.">Small office LAN with VLANs and testing scenarios — documented for junior techs.</p>
             <span class="project-tag">Cisco · Packet Tracer</span>
           </div>
         </div>
@@ -279,31 +279,31 @@
     <!-- ==================== FAQ SECTION ==================== -->
     <section class="faq section" id="faq">
       <div class="container">
-        <h2 class="section__title">Frequently Asked Questions</h2>
+        <h2 class="section__title" data-en="Frequently Asked Questions" data-ar="الأسئلة الشائعة">Frequently Asked Questions</h2>
         <div class="faq__grid">
           <div class="faq-item">
-            <div class="faq-question">Do you work with individuals or only companies?</div>
-            <div class="faq-answer">We work with both individuals and businesses across the UAE.</div>
+            <div class="faq-question" data-en="Do you work with individuals or only companies?" data-ar="هل تعمل مع الأفراد أم الشركات فقط؟">Do you work with individuals or only companies?</div>
+            <div class="faq-answer" data-en="We work with both individuals and businesses across the UAE." data-ar="نعمل مع كل من الأفراد والشركات في جميع أنحاء الإمارات.">We work with both individuals and businesses across the UAE.</div>
           </div>
           <div class="faq-item">
-            <div class="faq-question">Do you provide remote support?</div>
-            <div class="faq-answer">Yes, most IT and automation services can be done remotely. On-site available in Dubai & Sharjah.</div>
+            <div class="faq-question" data-en="Do you provide remote support?" data-ar="هل تقدمون دعماً عن بعد؟">Do you provide remote support?</div>
+            <div class="faq-answer" data-en="Yes, most IT and automation services can be done remotely. On-site available in Dubai & Sharjah." data-ar="نعم، معظم خدمات تقنية المعلومات والأتمتة يمكن القيام بها عن بعد. الخدمة في الموقع متاحة في دبي والشارقة.">Yes, most IT and automation services can be done remotely. On-site available in Dubai & Sharjah.</div>
           </div>
           <div class="faq-item">
-            <div class="faq-question">How fast do you respond?</div>
-            <div class="faq-answer">Typically within a few hours during working days (Sat–Thu, 9am–8pm).</div>
+            <div class="faq-question" data-en="How fast do you respond?" data-ar="كم سرعة ردكم؟">How fast do you respond?</div>
+            <div class="faq-answer" data-en="Typically within a few hours during working days (Sat–Thu, 9am–8pm)." data-ar="عادة في غضون ساعات قليلة خلال أيام العمل (السبت إلى الخميس، 9 صباحاً إلى 8 مساءً).">Typically within a few hours during working days (Sat–Thu, 9am–8pm).</div>
           </div>
           <div class="faq-item">
-            <div class="faq-question">Can you help with urgent government applications?</div>
-            <div class="faq-answer">Yes, we assist with urgent Tasheel, Amer, DED, and biometric services — including same-day appointments where available.</div>
+            <div class="faq-question" data-en="Can you help with urgent government applications?" data-ar="هل يمكنكم المساعدة في الطلبات الحكومية العاجلة؟">Can you help with urgent government applications?</div>
+            <div class="faq-answer" data-en="Yes, we assist with urgent Tasheel, Amer, DED, and biometric services — including same-day appointments where available." data-ar="نعم، نساعد في خدمات تسهيل وآمر ودائرة التنمية الاقتصادية والقياس الحيوي العاجلة — بما في ذلك المواعيد في نفس اليوم حيثما أمكن.">Yes, we assist with urgent Tasheel, Amer, DED, and biometric services — including same-day appointments where available.</div>
           </div>
           <div class="faq-item">
-            <div class="faq-question">Do you offer ongoing support?</div>
-            <div class="faq-answer">Yes, many clients work with us long-term for IT support, virtual assistance, and government renewals.</div>
+            <div class="faq-question" data-en="Do you offer ongoing support?" data-ar="هل تقدمون دعماً مستمراً؟">Do you offer ongoing support?</div>
+            <div class="faq-answer" data-en="Yes, many clients work with us long-term for IT support, virtual assistance, and government renewals." data-ar="نعم، العديد من العملاء يعملون معنا على المدى الطويل لدعم تقنية المعلومات والمساعدة الافتراضية وتجديد الخدمات الحكومية.">Yes, many clients work with us long-term for IT support, virtual assistance, and government renewals.</div>
           </div>
           <div class="faq-item">
-            <div class="faq-question">What government transactions can you help with?</div>
-            <div class="faq-answer">Any — visa, labor, trade license, property, biometrics, Emirates ID, family sponsorship, and general document typing.</div>
+            <div class="faq-question" data-en="What government transactions can you help with?" data-ar="ما المعاملات الحكومية التي يمكنكم المساعدة فيها؟">What government transactions can you help with?</div>
+            <div class="faq-answer" data-en="Any — visa, labor, trade license, property, biometrics, Emirates ID, family sponsorship, and general document typing." data-ar="أي شيء — التأشيرات، العمل، الرخص التجارية، الملكية، القياس الحيوي، بطاقة الهوية، كفالة العائلة، وكتابة المستندات العامة.">Any — visa, labor, trade license, property, biometrics, Emirates ID, family sponsorship, and general document typing.</div>
           </div>
         </div>
       </div>
@@ -312,32 +312,34 @@
     <!-- ==================== FINAL CTA + CONTACT ==================== -->
     <section class="contact section" id="contact">
       <div class="container">
-        <h2 class="section__title">Let's Make Your Work Easier</h2>
-        <p class="section__subtitle">Whether you need IT support, automation, a website, or help with UAE government services — we're ready to help. No stress. No delays. Just results.</p>
+        <h2 class="section__title" data-en="Let's Make Your Work Easier" data-ar="دعنا نجعل عملك أسهل">Let's Make Your Work Easier</h2>
+        <p class="section__subtitle" data-en="Whether you need IT support, automation, a website, or help with UAE government services — we're ready to help. No stress. No delays. Just results." data-ar="سواء كنت بحاجة إلى دعم تقنية معلومات، أو أتمتة، أو موقع ويب، أو مساعدة في الخدمات الحكومية الإماراتية — نحن مستعدون للمساعدة. لا إجهاد. لا تأخير. فقط نتائج.">
+          Whether you need IT support, automation, a website, or help with UAE government services — we're ready to help. No stress. No delays. Just results.
+        </p>
         
         <div class="contact__wrapper">
           <div class="contact__info">
-            <h3>Get in touch</h3>
+            <h3 data-en="Get in touch" data-ar="تواصل معنا">Get in touch</h3>
             <div class="info-line"><i class="uil uil-envelope"></i> kingmusta67@gmail.com</div>
             <div class="info-line"><i class="uil uil-phone"></i> +971 58 943 1918</div>
             <div class="info-line"><i class="uil uil-whatsapp"></i> WhatsApp: +971 58 943 1918</div>
-            <div class="info-line"><i class="uil uil-map-marker"></i> Dubai, United Arab Emirates</div>
+            <div class="info-line"><i class="uil uil-map-marker"></i> <span data-en="Dubai, United Arab Emirates" data-ar="دبي، الإمارات العربية المتحدة">Dubai, United Arab Emirates</span></div>
           </div>
           
           <form class="contact__form" id="contactForm">
-            <input type="text" id="name" placeholder="Full Name" required class="form-input">
-            <input type="email" id="email" placeholder="Email Address" required class="form-input">
-            <input type="tel" id="phone" placeholder="Phone Number (for WhatsApp follow-up)" required class="form-input">
+            <input type="text" id="name" data-placeholder-en="Full Name" data-placeholder-ar="الاسم الكامل" placeholder="Full Name" required class="form-input">
+            <input type="email" id="email" data-placeholder-en="Email Address" data-placeholder-ar="البريد الإلكتروني" placeholder="Email Address" required class="form-input">
+            <input type="tel" id="phone" data-placeholder-en="Phone Number (for WhatsApp follow-up)" data-placeholder-ar="رقم الهاتف (لمتابعة واتساب)" placeholder="Phone Number (for WhatsApp follow-up)" required class="form-input">
             <select id="service" class="form-input">
-              <option value="">Select Service Needed</option>
-              <option value="IT Support">IT Support</option>
-              <option value="Business Automation">Business Automation</option>
-              <option value="Website Development">Website Development</option>
-              <option value="Government Service">Government Service</option>
-              <option value="Other">Other</option>
+              <option value="" data-en="Select Service Needed" data-ar="اختر الخدمة المطلوبة">Select Service Needed</option>
+              <option value="IT Support" data-en="IT Support" data-ar="دعم تقنية المعلومات">IT Support</option>
+              <option value="Business Automation" data-en="Business Automation" data-ar="أتمتة الأعمال">Business Automation</option>
+              <option value="Website Development" data-en="Website Development" data-ar="تطوير المواقع">Website Development</option>
+              <option value="Government Service" data-en="Government Service" data-ar="خدمة حكومية">Government Service</option>
+              <option value="Other" data-en="Other" data-ar="أخرى">Other</option>
             </select>
-            <textarea id="message" rows="4" placeholder="Tell us about your needs..." required class="form-input"></textarea>
-            <button type="submit" class="btn btn-primary">Send Message →</button>
+            <textarea id="message" rows="4" data-placeholder-en="Tell us about your needs..." data-placeholder-ar="أخبرنا عن احتياجاتك..." placeholder="Tell us about your needs..." required class="form-input"></textarea>
+            <button type="submit" class="btn btn-primary"><span data-en="Send Message →" data-ar="إرسال الرسالة →">Send Message →</span></button>
           </form>
         </div>
       </div>
@@ -350,8 +352,8 @@
       <div class="footer__content">
         <div>
           <h3 class="footer__logo">Musta Tech Solutions</h3>
-          <p>IT Support · Automation · Government Services · Websites</p>
-          <p>📍 Dubai, United Arab Emirates</p>
+          <p data-en="IT Support · Automation · Government Services · Websites" data-ar="دعم تقنية المعلومات · الأتمتة · الخدمات الحكومية · المواقع">IT Support · Automation · Government Services · Websites</p>
+          <p>📍 <span data-en="Dubai, United Arab Emirates" data-ar="دبي، الإمارات العربية المتحدة">Dubai, United Arab Emirates</span></p>
         </div>
         <div class="footer__social">
           <a href="https://linkedin.com/in/mustafa-ahmed10" target="_blank"><i class="uil uil-linkedin"></i></a>
@@ -360,7 +362,7 @@
         </div>
       </div>
       <div class="footer__bottom">
-        <p>© 2025 Musta Tech Solutions — All rights reserved.</p>
+        <p>© 2025 Musta Tech Solutions — <span data-en="All rights reserved." data-ar="جميع الحقوق محفوظة.">All rights reserved.</span></p>
       </div>
     </div>
   </footer>
