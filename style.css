@@ -11,6 +11,57 @@
   --accent: #E6B84D;
   --accent-dark: #D4A43A;
   
+  /* Arabic Font Support */
+[lang="ar"] {
+  font-family: 'Cairo', 'Space Grotesk', sans-serif;
+}
+
+/* RTL Layout for Arabic */
+body.rtl {
+  direction: rtl;
+  text-align: right;
+}
+
+body.rtl .nav__list {
+  padding-right: 0;
+}
+
+body.rtl .hero__buttons,
+body.rtl .trust-strip,
+body.rtl .service-card ul li,
+body.rtl .problem-card,
+body.rtl .info-line {
+  direction: rtl;
+}
+
+body.rtl .service-card ul li i,
+body.rtl .problem-card i,
+body.rtl .info-line i {
+  margin-left: 0.5rem;
+  margin-right: 0;
+}
+
+body.rtl .trust-strip span i {
+  margin-left: 0.5rem;
+  margin-right: 0;
+}
+
+body.rtl .step-card,
+body.rtl .project-card,
+body.rtl .faq-item {
+  text-align: right;
+}
+
+body.rtl .btn i {
+  margin-left: 0.5rem;
+  margin-right: 0;
+}
+
+body.rtl .card-cta i {
+  margin-left: 0.3rem;
+  margin-right: 0;
+}
+
   /* Dark Theme (Default) */
   --bg-dark: #121826;
   --bg-card-dark: #1A1F2E;
